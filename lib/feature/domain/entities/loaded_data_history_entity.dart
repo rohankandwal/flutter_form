@@ -6,7 +6,6 @@ class LoadedDataEntity extends Equatable {
   LoadedDataEntity({this.loadedDateTime});
 
   @override
-  // TODO: implement props
   List<Object> get props => [loadedDateTime];
 
 }

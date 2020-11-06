@@ -5,8 +5,10 @@ import 'package:retrofit/http.dart';
 
 part 'client.g.dart';
 
+
 @RestApi(baseUrl: "https://api.github.com/")
 abstract class RestClient {
+  /// flutter pub run build_runner build --delete-conflicting-outputs
 
   factory RestClient(final Dio dio, final MySharedPref sharedPref) {
     dio.interceptors

@@ -15,10 +15,11 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<MyBloc>(context).add(DidWeLoadData());
+    BlocProvider.of<MyBloc>(context).add(DidWeLoadData(username: "sf", password: "sdf"));
   }
 
   @override

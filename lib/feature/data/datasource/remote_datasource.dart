@@ -17,7 +17,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     try {
       return client.getFeeds();
     } catch (exception) {
-      throw ServerException();
+      throw ServerException(exception.toString());
     }
   }
 

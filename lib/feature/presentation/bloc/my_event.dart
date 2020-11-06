@@ -7,7 +7,10 @@ abstract class MyEvent extends Equatable {
 }
 
 class DidWeLoadData extends MyEvent {
+  String username;
+  String password;
 
+  DidWeLoadData({this.username, this.password});
 }
 
 class LoadGitHubFeed extends MyEvent {

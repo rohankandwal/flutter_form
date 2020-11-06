@@ -31,7 +31,7 @@ class MyBloc extends Bloc<MyEvent, MyState> {
   ) async* {
     if (event is DidWeLoadData) {
       yield Loading();
-      final useCase = await getLastLoadedUseCase(NoParams());
+      final useCase = await getLastLoadedUseCase.call(LoadedParam(username: event.username, password: event.password));
       yield* useCase.fold(
           (failure) async* {
             yield Error(message: "No cache found");
