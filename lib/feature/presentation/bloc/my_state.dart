@@ -15,8 +15,9 @@ class Loading extends MyState {}
 /// Called when user data is loaded
 class Loaded extends MyState {
   final LoadedDataEntity dataModel;
+  final GithubFeedEntity feedEntity;
 
-  Loaded({this.dataModel});
+  Loaded({this.dataModel, this.feedEntity});
 }
 
 /// Called when there is Error

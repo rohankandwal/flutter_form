@@ -9,10 +9,27 @@ part of 'client.dart';
 class _RestClient implements RestClient {
   _RestClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    baseUrl ??= 'http://15.207.17.172:8080/';
+    baseUrl ??= 'https://api.github.com/';
   }
 
   final Dio _dio;
 
   String baseUrl;
+
+  @override
+  Future<GitHubFeedModel> getFeeds() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.request<Map<String, dynamic>>('/feeds',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = GitHubFeedModel.fromJson(_result.data);
+    return value;
+  }
 }

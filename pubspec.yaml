@@ -40,6 +40,7 @@ dependencies:
   dio: ^3.0.10
   # Local cache
   shared_preferences: ^0.5.10
+  json_annotation: ^3.0.1
   # add this line to your dependencies
   toast: ^0.1.5
   # The following adds the Cupertino Icons font to your application.
@@ -51,6 +52,8 @@ dev_dependencies:
     sdk: flutter
   retrofit_generator: any
   build_runner: any
+  # For any serialization
+  json_serializable: ^3.4.1
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

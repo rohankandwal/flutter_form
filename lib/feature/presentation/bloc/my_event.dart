@@ -9,3 +9,7 @@ abstract class MyEvent extends Equatable {
 class DidWeLoadData extends MyEvent {
 
 }
+
+class LoadGitHubFeed extends MyEvent {
+
+}

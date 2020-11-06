@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_example_app/core/utils/my_shared_pref.dart';
+import 'package:flutter_example_app/feature/data/model/github_feed_model.dart';
 import 'package:retrofit/http.dart';
 
 part 'client.g.dart';
 
-@RestApi(baseUrl: "http://15.207.17.172:8080/")
+@RestApi(baseUrl: "https://api.github.com/")
 abstract class RestClient {
 
   factory RestClient(final Dio dio, final MySharedPref sharedPref) {
@@ -21,4 +22,7 @@ abstract class RestClient {
     }));
     return _RestClient(dio);
   }
+
+  @GET("/feeds")
+  Future<GitHubFeedModel> getFeeds();
 }

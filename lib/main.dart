@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_example_app/feature/presentation/bloc/my_bloc.dart';
-import 'package:flutter_example_app/feature/presentation/pages/splash_screen.dart';
+import 'package:flutter_example_app/feature/presentation/pages/home/home_screen.dart';
+import 'package:flutter_example_app/feature/presentation/pages/splash/splash_screen.dart';
 import 'package:flutter_example_app/injector_container.dart';
 
 import 'core/bloc/my_bloc_observer.dart';
@@ -40,6 +41,10 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (context) => BlocProvider<MyBloc>(
               create: (context) => sl<MyBloc>(),
               child: SplashScreen(),
+            ),
+        HomeScreen.routeName: (context) => BlocProvider<MyBloc>(
+              create: (context) => sl<MyBloc>(),
+              child: HomeScreen(),
             ),
       },
       initialRoute: SplashScreen.routeName,

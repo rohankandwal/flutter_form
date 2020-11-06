@@ -1,6 +1,7 @@
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_example_app/feature/domain/usecase/check_data_history_usecase.dart';
+import 'package:flutter_example_app/feature/domain/usecase/get_github_feed_usecase.dart';
 import 'package:flutter_example_app/feature/presentation/bloc/my_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,10 +18,12 @@ final sl = GetIt.instance;
 Future<void> init() async {
 
   sl.registerFactory(() => MyBloc(
-    getLastLoadedUseCase: sl()
+    getLastLoadedUseCase: sl(),
+    getGitHubFeedUseCase: sl(),
   ));
 
   sl.registerLazySingleton(() => GetLastLoadedUseCase(sl()));
+  sl.registerLazySingleton(() => GetGitHubFeedUseCase(sl()));
 
   // repository
   sl.registerLazySingleton<Repository>(() => RepositoryImpl(
